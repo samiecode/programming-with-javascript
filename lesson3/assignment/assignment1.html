@@ -1,0 +1,73 @@
+<!-- 
+    
+    Create a simple number guessing game using JavaScript. The program should:
+
+    - Generate a random number between 1 and 100.
+    - Allow the user to input their guess.
+    - Provide feedback on whether the guess is too high, too low, or correct.
+    - Keep track of the number of attempts.
+    - Display a congratulatory message when the correct number is guessed.
+    - Allow the option to play again.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+
+<body>
+    <button id="play">Start Game</button>
+    
+    <script>
+        const playGame = document.getElementById('play');
+
+        let secretNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        let guessedCorrectly = false;
+
+        console.log(secretNumber);
+
+        document.addEventListener('click', () => {
+
+            while (!guessedCorrectly) {
+                let userGuess = parseInt(prompt("Guess a number between 1 and 100:"));
+
+                if (isNaN(userGuess)) {
+                    alert("Please enter a valid number.");
+                } else {
+                    attempts++;
+
+                    if (userGuess === secretNumber) {
+                        guessedCorrectly = true;
+                        alert(`Congratulations! You guessed the correct number in ${attempts} attempts.`);
+                    } else if (userGuess < secretNumber) {
+                        alert("Too low. Try again.");
+                    } else {
+                        alert("Too high. Try again.");
+                    }
+                }
+            }
+
+            let playAgain = confirm("Do you want to play again?");
+            if (playAgain) {
+                secretNumber = Math.floor(Math.random() * 100) + 1;
+                attempts = 0;
+                guessedCorrectly = false;
+
+                console.log(secretNumber);
+            }
+            else {
+                document.writeln('Game Ended!');
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

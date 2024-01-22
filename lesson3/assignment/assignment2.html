@@ -1,0 +1,39 @@
+<!-- 
+    Create a temperature converter using JavaScript. The program should:
+
+    - Allow the user to input a temperature in Celsius.
+    - Convert the Celsius temperature to Fahrenheit using the 
+        formula: F = (C * 9/ 5) + 32.
+    - Display the converted temperature in Fahrenheit.
+    - Ensure that the program handles invalid inputs gracefully 
+      (e.g., non-numeric  input).
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+
+<body>
+    <script>
+        let celsiusTemperature = prompt("Enter the temperature in Celsius:");
+
+        // Check if the input is a valid number
+        if (!isNaN(celsiusTemperature)) {
+
+            let fahrenheitTemperature = (parseFloat(celsiusTemperature) * 9 / 5) + 32;
+            
+            alert(`Temperature in Fahrenheit: ${fahrenheitTemperature.toFixed(2)}°F`);
+        } 
+        else {
+            alert("Please enter a valid numeric temperature.");
+        }
+
+    </script>
+</body>
+
+</html>
