@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+    </style>
+</head>
+
+<body class="flex justify-center items-center h-screen px-5">
+    <form action="" class="bg-gray-100 rounded-md flex flex-col w-[350px] px-4 py-6 gap-5 *:h-12 *:px-4 *:rounded-md *:outline-none *:border-2 *:border-transparent *:transition *:duration-500">
+        
+        <input type="text" id="fullname" onchange="" placeholder="Enter your fullname " class="hover:border-blue-400">
+
+        <input type="password" id="password" placeholder="*****" class="hover:border-blue-400">
+        <button type="submit" id="btn" class="bg-blue-400 text-white uppercase font-bold">sumbit</button>
+    </form>
+
+    <h1 id="success" style="background-color: chartreuse;"></h1>
+
+    <script>
+        const submitBtn = document.getElementById('btn');
+
+        submitBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullname').value;
+            const password = document.getElementById('password').value;
+
+            console.log(fullName + ' ' + password);
+
+            if (fullName == '' && password == '') {
+                alert('Invalid Credentails!');
+            }
+            else if (fullName == '') {
+                alert('Invalid Credentails!');
+            }
+            else if (password == '') {
+                alert('Invalid Credentails!');
+            } else {
+                document.getElementById('success').innerHTML = 'Successfully Login!'
+            }
+        })
+    </script>
+</body>
+
+</html>
