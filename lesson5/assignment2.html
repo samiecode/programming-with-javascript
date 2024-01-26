@@ -1,0 +1,49 @@
+<!-- 
+    - Create an empty array
+    - Allow the the user to add data to the array
+        
+    - And display the array using for loop. Note,  you must display it on your web page
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input id="name" type="text">
+        <button id="add">Add Name</button>
+    </div>
+
+    <div>
+        <p>List of Name:</p>
+
+        <!-- Order List -->
+        <ol id="nameList">
+        </ol>
+    </div>
+
+    <script>
+
+        var names = ['Go', 'Favour', 'Emma', "Stephen"];
+
+        const add = document.getElementById('add');
+        var nameList = document.getElementById('nameList');
+
+
+        for (let i = 0; i < names.length; i++) {
+            // Create a list tag
+            const name = document.createElement('li');
+            
+            name.innerHTML = names[i] ;
+            nameList.appendChild(name);
+            //nameList.insertBefore(name);
+        }
+    </script>
+</body>
+
+</html>

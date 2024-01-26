@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Manipulation</title>
+
+</head>
+
+<body>
+    <label for="nameInput">Add Data:</label>
+    <input type="text" id="nameInput">
+    <button id="addBtn">Add Name</button>
+
+    <h3>List of Names:</h3>
+    <ul id="nameList"></ul>
+
+    <script>
+        // Initialize an empty array
+        let nameList = [];
+
+        // Function to display the array using a for loop
+        function displayArray() {
+            const nameListElement = document.getElementById("nameList");
+            nameListElement.innerHTML = ""; // Clear previous content
+
+            // Use a for loop to iterate through the array and display each element
+            for (let i = 0; i < nameList.length; i++) {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = nameList[i];
+                nameListElement.appendChild(listItem);
+            }
+        }
+
+        document.getElementById('addBtn').addEventListener('click', () => {
+            nameList.push(document.getElementById('nameInput').value.trim()); 
+            displayArray(); 
+            document.getElementById('nameInput').value = '';
+        })
+    </script>
+
+</body>
+
+</html>
