@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step-by-Step Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="js/tailwindcss.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter Tight', sans-serif;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 flex justify-center items-center min-h-screen w-full *:bg-white *:max-w-md *:w-full *:rounded-lg *:drop-shadow-md *:px-8 *:py-10">
+
+    <form id="registrationForm">
+        <!-- Step 1: Personal Information -->
+        <div class="step active space-y-6" id="step1">
+            <h2 class="font-semibold text-xl text-lime-400">Personal Details</h2>
+            <div class="flex flex-col">
+                <label for="firstName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required
+                    class="h-10 rounded-md border-2 border-gray-400 px-3 outline-none focus:border-lime-400 transition duration-400">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="address">Current Address:</label>
+                <input type="text" id="address" name="address" required
+                    class="h-10 rounded-md border-2 border-gray-400 px-3 outline-none focus:border-lime-400 transition duration-400">
+            </div>
+
+
+            <button type="button" id="nextBtn1" class="bg-lime-400 rounded-md px-4 py-2">Next</button>
+        </div>
+
+        <!-- Step 2: Contact Information -->
+        <div class="step space-y-6" id="step2">
+            <h2 class="font-semibold text-xl text-lime-400">Account Information</h2>
+
+            <div class="flex flex-col">
+                <label for="username">Username:</label>
+                <input type="username" id="username" name="username" required
+                    class="h-10 rounded-md border-2 border-gray-400 px-3 outline-none focus:border-lime-400 transition duration-400">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="password">Phone:</label>
+                <input type="password" id="password" name="password" required
+                    class="h-10 rounded-md border-2 border-gray-400 px-3 outline-none focus:border-lime-400 transition duration-400">
+            </div>
+
+            <div>
+                <button type="button" id="prevBtn2"
+                    class=" border border-lime-400 rounded-md px-4 py-2">Previous</button>
+                <button type="button" id="nextBtn2" class="bg-lime-400 rounded-md px-4 py-2">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Account Information -->
+        <div class="step space-y-6" id="step3">
+            <div class="space-y-4">
+                <p class="font-medium">We just sent you a confirmation email. Enter the 6 digit code.</p>
+                
+                <div class="flex flex-col">
+                    <label for="vcode">Enter Code</label>
+                    <input type="text" class="h-10 rounded-md border-2 border-gray-400 px-3 outline-none focus:border-lime-400 transition duration-400" >
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="prevBtn3"
+                    class=" border border-lime-400 rounded-md px-4 py-2">Previous</button>
+                <button type="submit" class="bg-lime-400 rounded-md px-4 py-2">Submit</button>
+            </div>
+
+        </div>
+    </form>
+
+    <script>
+        let currentStep = 1;
+
+        document.getElementById('nextBtn1').addEventListener('click', () => navigate('next', 1));
+        document.getElementById('nextBtn2').addEventListener('click', () => navigate('next', 2));
+        document.getElementById('prevBtn2').addEventListener('click', () => navigate('prev', 2));
+        document.getElementById('prevBtn3').addEventListener('click', () => navigate('prev', 3));
+
+        function navigate(direction, step) {
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+
+            switch (direction) {
+                case 'next':
+                    currentStep = ++step;
+                    break;
+                case 'prev':
+                    currentStep = --step;
+                    break;
+            }
+
+            document.getElementById(`step${currentStep}`).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
