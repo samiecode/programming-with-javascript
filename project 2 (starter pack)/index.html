@@ -15,17 +15,19 @@
         <div>
             <a href="" class="font-bold text-xl">GoCarder</a>
         </div>
-        <div>
-            <ul class="flex gap-7 *:font-medium ">
+        <div id="sideNav" class="max-md:fixed max-md:h-screen max-md:w-[300px] -right-[300px] top-0 max-md:bg-slate-800 z-[50]">
+            <ul class="flex gap-7 *:font-medium max-md:flex-col max-md:text-white max-md:p-10">
                 <li><a href="">Home</a></li>
                 <li><a href="">About User</a></li>
                 <li><a href="">Service</a></li>
                 <li><a href="">Contact Us</a></li>
             </ul>
         </div>
-        <div>
+        <div id="menuBtn"
+            class="relative bg-green-400 rounded-md absolute right-0 top-0 z-[60] w-10 h-10 flex items-center justify-center">
             <!-- mobile nav -->
-            <span>
+
+            <span class=" ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
@@ -33,7 +35,8 @@
             </span>
         </div>
     </div>
-    <div class="px-16 py-10 min-h-screen flex gap-10 items-center">
+
+    <div class="px-16 py-10 min-h-screen flex gap-10 md:items-center max-md:flex-col">
         <div class="w-3/5 flex flex-col gap-4">
             <div>
                 <h1 class="text-6xl font-semibold">The Platform Recharge Card Sales</h1>
@@ -46,13 +49,15 @@
                     Started</button>
             </div>
         </div>
-        <div class="w-2/5 relative h-auto -mt-96">
+        <div class="w-2/5 relative h-auto md:-mt-96">
             <div class="absolute z-20 -left-10 top-10">
                 <img src="images/gocarder_order_page_mockup.png" alt="_img">
             </div>
-            <span class="block h-[400px] w-[400px] bg-green-300 rounded-full absolute"></span>
+            <span class="z-10 block h-[400px] w-[400px] bg-green-300 rounded-full absolute"></span>
         </div>
     </div>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
