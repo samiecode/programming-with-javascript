@@ -22,7 +22,7 @@
 
 <body>
     <button id="play">Start Game</button>
-    
+
     <script>
         const playGame = document.getElementById('play');
 
@@ -32,7 +32,7 @@
 
         console.log(secretNumber);
 
-        document.addEventListener('click', () => {
+        playGame.addEventListener('click', () => {
 
             while (!guessedCorrectly) {
                 let userGuess = parseInt(prompt("Guess a number between 1 and 100:"));
@@ -62,7 +62,7 @@
                 console.log(secretNumber);
             }
             else {
-                document.writeln('Game Ended!');
+                alert('Game Ended!');
             }
         })
 
